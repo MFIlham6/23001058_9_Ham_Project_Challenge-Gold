@@ -12,9 +12,11 @@ module.exports = {
       item_name: {
         type: Sequelize.STRING
       },
+      //Note: Kenapa ada kolom user_id di table item? Mestinya cukup di table orders saja
       user_id: {
         type: Sequelize.INTEGER
       },
+      //Note: Penamaan kolom user_id pakai camel_case sedangkan createdAt pakai camelCase. Bisa dibuat konsisten pilih salah 1 aja
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

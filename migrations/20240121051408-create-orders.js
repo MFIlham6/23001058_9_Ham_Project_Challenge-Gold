@@ -15,6 +15,7 @@ module.exports = {
       item_id: {
         type: Sequelize.INTEGER
       },
+      //Note: Penamaan kolom item_id pakai camel_case sedangkan createdAt pakai camelCase. Bisa dibuat konsisten pilih salah 1 aja
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

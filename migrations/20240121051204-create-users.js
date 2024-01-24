@@ -10,13 +10,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
+        //Note: seharusnya ada constraint not null
         type: Sequelize.STRING
       },
       email: {
+        //Note: seharusnya ada constraint not null juga
         type: Sequelize.STRING,
         unique: true
       },
       password: {
+        //Note: seharusnya ada constraint not null
         type: Sequelize.STRING
       },
       createdAt: {

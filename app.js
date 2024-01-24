@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({extended: true}));
 
+//Note: Api-api disini bisa dipisah berdasarkan router dan controllernya ya supaya gak numpuk di 1 file kaya gini
 
 // API
 // Register
@@ -37,6 +38,7 @@ app.post("/register", async(req, res, next)=>{
     password: req.body.password
   };
 
+  //Note: callbacknya sudah pakai async, bisa coba pakai await dan try-catch supaya gak perlu .then .catch
   // Save User in the database
   users.create(user)
     .then(users => {
@@ -236,6 +238,7 @@ app.post("/order", async(req, res, next) =>{
     }
   })
 
+  //Note: disini sudah pakai await harusnya gak perlu .then lagi
   await items.findAll({
     raw: true,
     nest: true,
@@ -243,6 +246,7 @@ app.post("/order", async(req, res, next) =>{
       id: req.body.item_id
     }
   }).then(resp => {
+    //Note: Gunakan async await saja supaya tidak terjadi promise hell seperti ini
     if (findUser.length > 0) {
       if (resp.length > 0) { //check if item is exists by item_id
         orders.create(order)
